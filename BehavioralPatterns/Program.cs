@@ -1,4 +1,6 @@
-﻿class Program
+﻿using BehavioralPatterns.Task4;
+
+class Program
 {
     static void Main(string[] args)
     {
@@ -15,6 +17,7 @@
 
         while (!isHandled)
         {
+            Console.WriteLine("Ланцюжок");
             Console.WriteLine("1-Баланс, 2-Тариф, 3-Інтернет, 4-Скарга");
             Console.Write("Вибір: ");
             string choice = Console.ReadLine();
@@ -63,5 +66,16 @@
 
         editor.Undo();
         Console.WriteLine($"Після відміни 2: {editor.Text}");
+
+
+        Console.WriteLine("Стратегія");
+        var localImage = new LightImageNode("C:\\images\\photo.png");
+        var networkImage = new LightImageNode("https://example.com/photo.png");
+
+        localImage.LoadImage();
+        Console.WriteLine(localImage.OuterHTML);
+
+        networkImage.LoadImage();
+        Console.WriteLine(networkImage.OuterHTML);
     }
 }
