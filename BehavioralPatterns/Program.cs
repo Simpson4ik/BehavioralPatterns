@@ -1,4 +1,6 @@
-﻿class Program
+﻿using BehavioralPatterns.Task3;
+
+class Program
 {
     static void Main(string[] args)
     {
@@ -63,5 +65,19 @@
 
         editor.Undo();
         Console.WriteLine($"Після відміни 2: {editor.Text}");
+
+
+
+
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("Спостерігач");
+        var button = new LightElementNode("button", DisplayType.Inline, ClosingType.Paired);
+        button.Add(new LightTextNode("Натисни мене"));
+
+        button.AddEventListener("click", () => Console.WriteLine("Клік: Кнопку було натиснуто!"));
+        button.AddEventListener("click", () => Console.WriteLine("Клік: Логування натискання в базу."));
+        button.AddEventListener("mouseover", () => Console.WriteLine("Наведення: Курсор над кнопкою."));
+        button.DispatchEvent("mouseover");
+        button.DispatchEvent("click");
     }
 }
