@@ -26,5 +26,16 @@
                 Console.WriteLine("Помилка.");
             }
         }
+       
+        
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        ICommandCentre centre = new CommandCentre();
+        Runway runway = new Runway(centre);
+        Aircraft aircraft1 = new Aircraft(centre);
+        Aircraft aircraft2 = new Aircraft(centre);
+
+        aircraft1.Land();
+        aircraft2.Land();
     }
 }
