@@ -26,8 +26,10 @@
                 Console.WriteLine("Помилка.");
             }
         }
-       
-        
+
+
+
+        Console.WriteLine("Медіатор");
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         ICommandCentre centre = new CommandCentre();
@@ -37,5 +39,29 @@
 
         aircraft1.Land();
         aircraft2.Land();
+
+
+
+
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("Мементо");
+        var editor = new TextEditor();
+
+        editor.Text = "Текст версія 1";
+        editor.Save();
+        Console.WriteLine($"Збережено: {editor.Text}");
+
+        editor.Text = "Текст версія 2";
+        editor.Save();
+        Console.WriteLine($"Збережено: {editor.Text}");
+
+        editor.Text = "Ой, випадково видалив все!";
+        Console.WriteLine($"Поточний стан: {editor.Text}");
+
+        editor.Undo();
+        Console.WriteLine($"Після відміни 1: {editor.Text}");
+
+        editor.Undo();
+        Console.WriteLine($"Після відміни 2: {editor.Text}");
     }
 }
